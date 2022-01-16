@@ -1,0 +1,55 @@
+<div class="card bg-light">
+  <div class="card-body">
+    <h5 class="card-title text-center">
+      Listado de Citas
+    </h5>
+
+    <table class="table table-sm table-borderless">
+      <thead>
+        <tr>
+          <td>#</td>
+          <th>Nombre</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Sintomas</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="listadoCitas.length > 0">
+          <tr *ngFor="let cita of listadoCitas; let i = index">
+            <td>
+              {{ i + 1}}
+            </td>
+            <td>
+              {{ cita.nombre }}
+            </td>
+            <td>
+              {{ cita.fecha }}
+            </td>
+            <td>
+              {{ cita.hora }}
+            </td>
+            <td>
+              {{ cita.sintomas }}
+            </td>
+            <td>
+              <a (click)="eliminarCita(i)" role="button" class="link-danger">
+                Eliminar
+              </a>
+            </td>
+          </tr>
+        </ng-container>
+        <ng-container *ngIf="listadoCitas.length == 0">
+          <tr>
+            <td colspan="6" class="text-center">
+              <em>
+                No hay citas para mostrar
+              </em>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>
